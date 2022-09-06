@@ -1,15 +1,16 @@
 import React from 'react'
 import bgLogin from '../../assets/login.svg'
+import FormLogin from '../../components/FormLogin'
 import './login.css'
 
 const Login = () => {
     return (
         <div className='login'>
             <div className='loginKiri'>
-                    <img src={bgLogin} alt="" />
+                <img src={bgLogin} alt="" />
             </div>
-            <div>
-                <h4>Kiri</h4>
+            <div className='loginKanan'>
+                <FormLogin />
             </div>
         </div>
     )

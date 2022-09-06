@@ -4,7 +4,7 @@
 }
 
 .loginKiri {
-    width: 75vw;
+    width: 65%;
     background-color: #002966;
     height: 100vh;
     overflow: hidden;
@@ -12,4 +12,12 @@
 
 .loginKiri img {
     width: 100%;
+}
+
+.loginKanan {
+    width: 35%;
+    display: flex;
+    width: 35%;
+    justify-content: center;
+    align-self: center;
 }
