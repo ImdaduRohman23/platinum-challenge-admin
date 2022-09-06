@@ -1,0 +1,15 @@
+.login {
+    display: flex;
+    justify-content: space-between;
+}
+
+.loginKiri {
+    width: 75vw;
+    background-color: #002966;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.loginKiri img {
+    width: 100%;
+}
