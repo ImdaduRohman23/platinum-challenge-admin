@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './login.css'
 import { useState } from 'react';
+import axios from 'axios';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -11,7 +12,17 @@ const Login = () => {
 
     const handleSigIn = (e) => {
         e.preventDefault();
-        console.log(email, password)
+
+        const payload = {
+            email: email,
+            password:  password,
+        }
+
+        axios.post('https://bootcamp-rent-car.herokuapp.com/admin/auth/login', payload)
+            .then(res => (
+                console.log(res),
+                localStorage.setItem('token', res.data.access_token)
+                ))
     }
 
     return (
