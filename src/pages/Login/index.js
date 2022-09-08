@@ -5,10 +5,14 @@ import Form from 'react-bootstrap/Form';
 import './login.css'
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const Login = () => {
+const Login = ({setIsLogin}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
 
     const handleSigIn = (e) => {
         e.preventDefault();
@@ -21,9 +25,21 @@ const Login = () => {
         axios.post('https://bootcamp-rent-car.herokuapp.com/admin/auth/login', payload)
             .then(res => (
                 console.log(res),
-                localStorage.setItem('token', res.data.access_token)
-                ))
+                localStorage.setItem('token', res.data.access_token),
+                setIsLogin(true),
+                navigate('/dashboard')
+            ))
     }
+
+    //handle balik ke page login pas dirifresh
+    useEffect(() => {
+        const checkIfLogin = () => {
+            const token = localStorage.getItem('token');
+            if (!token) return;
+            navigate('/dashboard')
+        };
+        checkIfLogin();
+    });
 
     return (
         <div className='login'>

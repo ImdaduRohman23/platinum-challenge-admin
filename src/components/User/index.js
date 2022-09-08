@@ -7,6 +7,7 @@ const User = () => {
 
     const profile = {name: "Unis Badri", image: user}
 
+
     return (
         <NavDropdown 
           title={
@@ -17,7 +18,11 @@ const User = () => {
           }
           id="basic-nav-dropdown">
             <NavDropdown.Item>Profile</NavDropdown.Item>
-            <NavDropdown.Item style={{color:"red"}}>Logout</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => {
+              localStorage.clear('token');
+              window.location.reload();
+            }}
+              style={{color:"red"}}>Logout</NavDropdown.Item>
         </NavDropdown>
     )
 }
